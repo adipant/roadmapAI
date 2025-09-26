@@ -17,11 +17,14 @@ const App = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:5000/api/generate-roadmap", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic }),
-      });
+      const response = await fetch(
+        "https://roadmap-ai-backend-three.vercel.app/api/generate-roadmap",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ topic }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
