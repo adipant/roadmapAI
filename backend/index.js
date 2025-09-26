@@ -27,6 +27,13 @@ async function cleanAIresponse(content) {
   throw new Error("No valid JSON block found in response");
 }
 
+app.get("/", (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false,
+  });
+});
+
 app.post("/api/generate-roadmap", async (req, res) => {
   try {
     const chatCompletion = await groq.chat.completions.create({
